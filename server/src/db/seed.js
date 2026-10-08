@@ -569,9 +569,9 @@ async function seed() {
     // Community Post Likes
     await client.query(
       `INSERT INTO community_post_likes (post_id, member_id, created_at) VALUES
-        ($1, $4), ($1, $5),
-        ($2, $4), ($2, $6),
-        ($3, $4), ($3, $5)
+        ($1, $4, NOW()), ($1, $5, NOW()),
+        ($2, $4, NOW()), ($2, $6, NOW()),
+        ($3, $4, NOW()), ($3, $5, NOW())
       ON CONFLICT DO NOTHING`,
       [post1, post2, post3, ids.admin, ids.sarah, ids.michael]
     );
