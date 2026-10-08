@@ -37,8 +37,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// Handle preflight OPTIONS requests for all routes
-app.options("(.*)", cors(corsOptions));
+// Handle preflight OPTIONS requests for all routes using RegExp
+app.options(/.*/, cors(corsOptions));
 app.use(express.json({ limit: "15mb" }));
 app.use(express.urlencoded({ limit: "15mb", extended: true }));
 
